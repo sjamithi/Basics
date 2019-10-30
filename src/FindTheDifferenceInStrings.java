@@ -2,6 +2,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class FindTheDifferenceInStrings {
+
+    private static char diff(String s, String t) {
+        char res = 'a';
+        int[] al = new int[256];
+
+        for (char a : s.toCharArray()) {
+            if (a != ' ')
+            al[a - 'a']++;
+        }
+
+        for (char a: t.toCharArray()) {
+            if (--al[a- 'a'] < 0) {
+                return a;
+            }
+        }
+
+        return res;
+    }
+
     private static char findTheDifference(String s, String t) {
         Map<Character, Integer> map = new HashMap<>();
         char res = ' ';
