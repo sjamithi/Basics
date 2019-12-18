@@ -21,7 +21,7 @@ public class FirstRepeatedCharacterInAString {
             chars[c]++;
         }
         for (int i=0; i<s.length();i++) {
-            if (chars[s.charAt(i)] == 1) {
+            if (chars[s.charAt(i)] > 1) {
                 res = s.charAt(i);
                 break;
             }
@@ -43,8 +43,8 @@ public class FirstRepeatedCharacterInAString {
 
     public static void main(String[] args) {
         String s = "sandeep";
-        System.out.println(repeated(s));
-        System.out.println(findFirst(s));
+        System.out.println("-=>"+repeated(s));
+        System.out.println("==?"+findFirst(s));
         System.out.println(repeatedWord(s));
     }
 }

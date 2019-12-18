@@ -7,18 +7,17 @@ import java.util.Stack;
 public class PostOrderTraversal {
 
     public static List<Integer> postOrder(TreeNode root) {
-        List<Integer> result = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>();
-
+      List<Integer> res = new ArrayList<>();
+      Stack<TreeNode> stack = new Stack<>();
         if (root == null) {
-            return result;
+            return res;
         }
         stack.push(root);
         while (!stack.isEmpty()) {
             TreeNode temp = stack.peek();
-            if (temp.left == null && temp.right == null) {
-                TreeNode pop = stack.pop();
-                result.add(pop.val);
+            if (temp.right == null && temp.left == null) {
+                res.add(temp.val);
+                stack.pop();
             } else {
                 if (temp.right != null) {
                     stack.push(temp.right);
@@ -30,20 +29,13 @@ public class PostOrderTraversal {
                 }
             }
         }
-
-        return result;
+      return res;
     }
 
     public static void main(String[] args) {
         TreeNode node = new TreeNode(1);
-        node.left = new TreeNode(2);
-        node.right = new TreeNode(3);
-        node.left.left = new TreeNode(4);
-        node.left.right = new TreeNode(5);
-        node.left.right.left = new TreeNode(6);
-
+        node.right = new TreeNode(2);
+        node.right.left = new TreeNode(3);
         System.out.println(postOrder(node));
-
     }
-
 }

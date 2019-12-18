@@ -1,3 +1,5 @@
+package LinkedList;
+
 public  class LinkedListCycle {
     class ListNode {
       int val;

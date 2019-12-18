@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class ReverseVowels {
     private static String rev(String s) {
         String rev = "", vowels = "aeiou";
@@ -16,6 +18,10 @@ public class ReverseVowels {
         char temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
+        Stack st = new Stack<>();
+        st.peek();
+
+
         return new String(arr);
     }
     public static void main(String[] args) {
