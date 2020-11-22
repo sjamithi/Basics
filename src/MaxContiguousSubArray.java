@@ -26,9 +26,27 @@ public class MaxContiguousSubArray {
         }
         return max;*/
     }
+
+    private int maxSum (int[] arr) {
+        int sum = 0, max = Integer.MIN_VALUE;
+        for (int i: arr) {
+            sum += i;
+
+            if (sum > max) {
+                max = sum;
+            }
+
+            if (sum < 0) {
+                sum = 0;
+            }
+        }
+        return max;
+    }
+
     public static void main(String[] args) {
-    int[] arr = {-2,-1,1,4};
+    int[] arr = {-2,-1,-5,-1,-4};
     MaxContiguousSubArray max = new MaxContiguousSubArray();
     System.out.println(max.maxSubArray(arr));
+        System.out.println(max.maxSum(arr));
     }
 }

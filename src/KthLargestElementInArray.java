@@ -4,6 +4,7 @@ import java.util.PriorityQueue;
 public class KthLargestElementInArray {
     private static int kthLargest(int[] arr, int k) {
         PriorityQueue<Integer> heap = new PriorityQueue<>(Comparator.reverseOrder());
+//        PriorityQueue<Integer> heap = new PriorityQueue<>((a,b) -> b - a);
         for (int i: arr) {
             heap.add(i);
         }

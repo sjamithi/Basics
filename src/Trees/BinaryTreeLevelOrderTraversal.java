@@ -2,36 +2,32 @@ package Trees;
 
 
 import java.util.*;
-import java.util.concurrent.LinkedBlockingDeque;
 
 public class BinaryTreeLevelOrderTraversal {
-    private static List<List<Integer>> result = new ArrayList<>();
     public static List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> res = new LinkedList<>();
         if (root == null)
-            return new ArrayList<>();
-        return levelOrder(root, result);
-    }
+            return res;
+        Queue<TreeNode> queue = new LinkedList<>();
 
-    private static List<List<Integer>> levelOrder(TreeNode root, List<List<Integer>> res) {
-        Queue<TreeNode> queue = new LinkedBlockingDeque<>();
-        queue.add(root);
+        queue.offer(root);
 
-        while (!queue.isEmpty()) {
+        while (! queue.isEmpty()) {
             int size = queue.size();
-            List<Integer> tempList = new ArrayList<>();
-
-            for (int i=0; i<size; i++) {
+            List<Integer> list = new LinkedList<>();
+            for (int i=0; i< size; i++) {
                 TreeNode temp = queue.poll();
-                tempList.add(temp.val);
+                list.add(temp.val);
 
                 if (temp.left != null) {
-                    queue.offer(temp.left);
+                    queue.add(temp.left);
                 }
-                if (temp.right != null) {
-                    queue.offer(temp.right);
+
+                if(temp.right != null) {
+                    queue.add(temp.right);
                 }
             }
-            res.add(tempList);
+            res.add(list);
         }
         return res;
     }

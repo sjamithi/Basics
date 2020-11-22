@@ -17,8 +17,8 @@ public class CanAttendMeetings {
     }
     public static void main(String[] args) {
         Interval a = new Interval(0, 5);
-        Interval b = new Interval(5, 10);
-        Interval c = new Interval(15, 20);
+        Interval b = new Interval(5, 15);
+        Interval c = new Interval(10, 20);
         Interval[] intervals = {a,b,c};
         System.out.println(canAttend(intervals));
     }

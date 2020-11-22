@@ -1,22 +1,22 @@
 public class ProductOfArrayExceptSelf {
     private int[] computeProduct(int[] num) {
+        int[] arr = new int[num.length];
+        int[] temp = new int[num.length];
         int[] result = new int[num.length];
-        int[] t1 = new int[num.length];
-        int[] t2 = new int[num.length];
 
-        t1[0] = 1;
-        t2[num.length -1] = 1;
+        arr[0] = num[0];
+        temp[temp.length-1] = num[0];
 
-        for (int i=0; i<num.length-1; i++) {
-            t1[i+1] = t1[i] * num[i];
+        for (int i = 0; i< num.length-1; i++) {
+            arr[i+1] = arr[i] * num[i];
         }
 
-        for (int i=num.length-1; i>0; i--) {
-            t2[i-1] = t2[i] * num[i];
+        for (int i = num.length-1; i >0; i--) {
+            temp[i-1] = temp[i] * num[i];
         }
 
-        for (int i=0; i<num.length; i++) {
-            result[i] = t1[i] * t2[i];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = arr[i] * temp[i];
         }
         return result;
     }
@@ -25,7 +25,7 @@ public class ProductOfArrayExceptSelf {
         ProductOfArrayExceptSelf productOfArrayExceptSelf  = new ProductOfArrayExceptSelf();
         int[] res = productOfArrayExceptSelf.computeProduct(arr);
         for(int i: res) {
-            System.out.println(i);
+            System.out.print(i+ " ");
         }
 
     }

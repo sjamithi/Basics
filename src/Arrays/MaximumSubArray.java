@@ -14,7 +14,7 @@ public class MaximumSubArray {
         return max;
     }
     public static void main(String[] args) {
-        int[] arr = new int[] {-2,1,-3,4,-1,2,1,-5,4};
+        int[] arr = new int[] {2,3,-8,-1,2,4,-2,3};
         System.out.println(maxSubArray(arr));
     }
 }

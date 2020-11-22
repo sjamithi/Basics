@@ -44,6 +44,19 @@ public class SortByParity {
         return res;
     }
 
+    private static int[] sortByPar(int[] arr) {
+        int e = 0;
+
+        for (int i=0; i< arr.length; i++) {
+            if (arr[i] % 2 == 0) {
+                int temp = arr[i];
+                arr[i] = arr[e];
+                arr[e++] = temp;
+            }
+        }
+        return arr;
+    }
+
     public static void main(String[] args) {
         int[] arr = new int[]{4,2,5,7};
         int[] res = sortArrayByParityII(arr);
@@ -56,5 +69,7 @@ public class SortByParity {
         for (int i: result) {
             System.out.print(i + "  ");
         }
+
+        Arrays.stream(sortByPar(arr)).forEach(System.out::print);
     }
 }
